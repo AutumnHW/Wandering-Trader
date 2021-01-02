@@ -1,4 +1,3 @@
-// straight off the discordjs guide, only need this shitty ass script for loading the commands folder and dynamic execution
 const fs = require('fs');
 const Discord = require('discord.js');
 const prefix = require('./config.json');
@@ -14,6 +13,7 @@ for (const file of commandFiles) {
 }
 
 client.on('ready', () => {
+	client.user.setActivity('For trades... (t!)', { type: 'WATCHING' });
 	console.log('Ready!');
 });
 
@@ -34,7 +34,3 @@ client.on('message', message => {
 });
 
 client.login(token.token);
-client.on("ready", () => {
-	client.user.setActivity('For trades... (t!)', { type: 'WATCHING' });
-
-});
