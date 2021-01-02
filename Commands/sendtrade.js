@@ -20,7 +20,7 @@ module.exports = {
 		message.channel.send(orderid + " is your trade id.");
 		let acceptedBool = false;
 		let completedBool = false;
-		if (args[2] == "-p") {
+		if (args[3] == "-p") {
 			let orderdata = {
 				order: orderid,
 				requester: message.author.id,
@@ -39,7 +39,7 @@ module.exports = {
 				if (err) throw err;
 				console.log('Data written to file');
 			});
-			const orderdataString = ("order: " + orderid + ",\nrequester: " + message.author.id + ",\nrequestee: " + sendto.id + ",\nitems: " + args[1] + ",\naccepted: " + acceptedBool + ",\ncompleted: " + completedBool + ",\nprivate: true");
+			const orderdataString = ("Order: " + orderid + ",\nRequester: " + message.author.username + ",\nRequestee: " + sendto.username + ",\nI Want: " + args[1] + ",\nFor: " + args[2]+ ",\nAccepted: " + acceptedBool + ",\nCompleted: " + completedBool + ",\nPrivate: true");
 			message.author.send(orderdataString + "\n\n\nThat is your order data. You are the requester.\n**This order is PRIVATE. Logs will not be made of this transaction.**");
 			let user = message.mentions.users.first();
 			user.send(orderdataString + "\n\n\nThat is your order data. You are the requestee.\n**This order is PRIVATE. Logs will not be made of this transaction.**");
@@ -49,7 +49,8 @@ module.exports = {
 				order: orderid,
 				requester: message.author.id,
 				requestee: sendto.id,
-				items: args[1],
+				iwant: args[1],
+				for: args[2],
 				accepted: acceptedBool,
 				completed: completedBool,
 				private: false
@@ -62,7 +63,7 @@ module.exports = {
 				if (err) throw err;
 				console.log('Data written to file');
 			});
-			const orderdataString = ("Order: " + orderid + ",\nRequester: " + message.author.username + ",\nRequestee: " + sendto.username + ",\nItems: " + args[1] + ",\nAccepted: " + acceptedBool + ",\nCompleted: " + completedBool + ",\nPrivate: false");
+			const orderdataString = ("Order: " + orderid + ",\nRequester: " + message.author.username + ",\nRequestee: " + sendto.username + ",\nI Want: " + args[1] + ",\nFor: " + args[2]+ ",\nAccepted: " + acceptedBool + ",\nCompleted: " + completedBool + ",\nPrivate: false");
 			message.author.send(orderdataString + "\n\n\nThat is your order data. You are the requester.");
 			let user = message.mentions.users.first();
 			user.send(orderdataString + "\n\n\nThat is your order data. You are the requestee.");
