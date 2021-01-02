@@ -62,13 +62,13 @@ module.exports = {
 				if (err) throw err;
 				console.log('Data written to file');
 			});
-			const orderdataString = ("Order: " + orderid + ",\nRequester: " + message.author.id + ",\nRequestee: " + sendto.id + ",\nItems: " + args[1] + ",\nAccepted: " + acceptedBool + ",\nCompleted: " + completedBool + ",\nPrivate: false");
+			const orderdataString = ("Order: " + orderid + ",\nRequester: " + message.author.username + ",\nRequestee: " + sendto.username + ",\nItems: " + args[1] + ",\nAccepted: " + acceptedBool + ",\nCompleted: " + completedBool + ",\nPrivate: false");
 			message.author.send(orderdataString + "\n\n\nThat is your order data. You are the requester.");
 			let user = message.mentions.users.first();
 			user.send(orderdataString + "\n\n\nThat is your order data. You are the requestee.");
 		}
 
 		console.log(sendto)
-		console.log()
+		console.log(message.author)
 	},
 } 
