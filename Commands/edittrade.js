@@ -101,6 +101,7 @@ module.exports = {
 			}
 
 			readWriteAsync();
+			const filePath = '../orders/' + args[0] + '.json';
 			const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
 			message.client.users.fetch(requester, false).then((user) => {
 				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
@@ -170,6 +171,7 @@ module.exports = {
 			}
 
 			readWriteAsync();
+			const filePath = '../orders/' + args[0] + '.json';
 			const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
 			message.client.users.fetch(requester, false).then((user) => {
 				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
