@@ -83,8 +83,8 @@ module.exports = {
 					var fileToEdit = "./orders/" + args[0] + ".json";
 					fs.readFile(fileToEdit, 'utf-8', function (err, data) {
 						if (err) throw err;
-						var toEdit = '"private": "' + private +'",';
-						var toEdit2 = '"private": "' + args[2] + '",';
+						var toEdit = '"private": "' + private +'"';
+						var toEdit2 = '"private": "' + args[2] + '"';
 						var newValue = data.replace(toEdit, toEdit2);
 
 						fs.writeFile(fileToEdit, newValue, 'utf-8', function (err) {
