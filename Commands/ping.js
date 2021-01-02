@@ -21,7 +21,7 @@ const milliseconverter = (millisec) => {
 
 module.exports = {
 	name: 'ping',
-	description: 'Take a guess. What the fuck could a command called ping possibly be?',
+	description: 'Sends the bot\'s ping and uptime.',
 	execute(message, args) {
         msg.channel.send(new Discord.MessageEmbed().setTitle('Ping').addField(`Bot Ping`, `**${client.ws.ping}** ms`, true).addField(`Uptime`, `**${milliseconverter(client.uptime)}**`).setColor('#04910e'));
 	}
