@@ -16,6 +16,8 @@ module.exports = {
   			console.error(err)
 		}
 		let sendto = message.mentions.users.first();
+		const requester = message.author.id;
+		const requestee = sendto.id;
 		if (requester == requestee || message.author.id == requestee) {
 			message.channel.send('You are not allowed to send trades to yourself!');
 			return;
