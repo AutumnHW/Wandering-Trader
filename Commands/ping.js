@@ -23,6 +23,6 @@ module.exports = {
 	name: 'ping',
 	description: 'Sends the bot\'s ping and uptime.',
 	execute(message, args) {
-        msg.channel.send(new Discord.MessageEmbed().setTitle('Ping').addField(`Bot Ping`, `**${client.ws.ping}** ms`, true).addField(`Uptime`, `**${milliseconverter(client.uptime)}**`).setColor('#04910e'));
+        	msg.channel.send(new Discord.MessageEmbed().setTitle('Ping').addField(`Bot Ping`, `**${client.ws.ping}** ms`, true).addField(`Uptime`, `**${milliseconverter(client.uptime)}**`).setColor('#04910e'));
 	}
 }
