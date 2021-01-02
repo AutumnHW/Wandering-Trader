@@ -1,4 +1,4 @@
-const { Console } = require('console');
+const Discord = require('discord.js')
 
 const milliseconverter = (millisec) => {
     var seconds = (millisec / 1000).toFixed(0);
