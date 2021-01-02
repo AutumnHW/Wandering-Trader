@@ -15,17 +15,11 @@ module.exports = {
 						var toEdit = '"want": "' + want + '",';
 						var toEdit2 = '"want": "' + args[2] + '",';
 						var newValue = data.replace(toEdit, toEdit2);
-	
+
 						fs.writeFile(fileToEdit, newValue, 'utf-8', function (err) {
 							if (err) throw err;
 							console.log('changed file ' + filePath);
 							message.reply('done, the new order data should be sent to you.');
-						});
-						message.client.users.fetch(requester, false).then((user) => {
-							user.send("Order: " + order + ",\nI Want: " + want + ",\nFor: " + give + ",\nAccepted: " + accepted + ",\nCompleted: " + completed + ",\nPrivate: " + private + ".\n\n\nThat is your order data, now updated.");
-						});
-						message.client.users.fetch(requestee, false).then((user) => {
-							user.send("Order: " + order + ",\nI Want: " + want + ",\nFor: " + give + ",\nAccepted: " + accepted + ",\nCompleted: " + completed + ",\nPrivate: " + private + ".\n\n\nThat is your order data, now updated.");
 						});
 					});
 				}
@@ -36,6 +30,12 @@ module.exports = {
 			}
 
 			readWriteAsync();
+			message.client.users.fetch(requester, false).then((user) => {
+				user.send("Order: " + order + ",\nI Want: " + want + ",\nFor: " + give + ",\nAccepted: " + accepted + ",\nCompleted: " + completed + ",\nPrivate: " + private + ".\n\n\nThat is your order data, now updated.");
+			});
+			message.client.users.fetch(requestee, false).then((user) => {
+				user.send("Order: " + order + ",\nI Want: " + want + ",\nFor: " + give + ",\nAccepted: " + accepted + ",\nCompleted: " + completed + ",\nPrivate: " + private + ".\n\n\nThat is your order data, now updated.");
+			});
 		}
 		if (args[1] == "give") {
 			function readWriteAsync() {
@@ -48,18 +48,11 @@ module.exports = {
 						var toEdit = '"give": "' + give + '",';
 						var toEdit2 = '"give": "' + args[2] + '",';
 						var newValue = data.replace(toEdit, toEdit2);
-	
+
 						fs.writeFile(fileToEdit, newValue, 'utf-8', function (err) {
 							if (err) throw err;
 							console.log('changed file ' + filePath);
 							message.reply('done, the new order data should be sent to you.');
-						});
-						const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
-						message.client.users.fetch(requester, false).then((user) => {
-							user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
-						});
-						message.client.users.fetch(requestee, false).then((user) => {
-							user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
 						});
 					});
 				}
@@ -70,6 +63,13 @@ module.exports = {
 			}
 
 			readWriteAsync();
+			const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
+			message.client.users.fetch(requester, false).then((user) => {
+				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
+			});
+			message.client.users.fetch(requestee, false).then((user) => {
+				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
+			});
 		}
 		if (args[1] == "accepted") {
 			function readWriteAsync() {
@@ -82,18 +82,11 @@ module.exports = {
 						var toEdit = '"accepted": ' + accepted + ',';
 						var toEdit2 = '"accepted": ' + args[2] + ',';
 						var newValue = data.replace(toEdit, toEdit2);
-	
+
 						fs.writeFile(fileToEdit, newValue, 'utf-8', function (err) {
 							if (err) throw err;
 							console.log('changed file ' + filePath);
 							message.reply('done, the new order data should be sent to you.');
-						});
-						const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
-						message.client.users.fetch(requester, false).then((user) => {
-							user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
-						});
-						message.client.users.fetch(requestee, false).then((user) => {
-							user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
 						});
 					});
 				}
@@ -104,6 +97,13 @@ module.exports = {
 			}
 
 			readWriteAsync();
+			const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
+			message.client.users.fetch(requester, false).then((user) => {
+				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
+			});
+			message.client.users.fetch(requestee, false).then((user) => {
+				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
+			});
 		}
 		if (args[1] == "completed") {
 			function readWriteAsync() {
@@ -116,18 +116,11 @@ module.exports = {
 						var toEdit = '"completed": ' + completed + ',';
 						var toEdit2 = '"completed": ' + args[2] + ',';
 						var newValue = data.replace(toEdit, toEdit2);
-	
+
 						fs.writeFile(fileToEdit, newValue, 'utf-8', function (err) {
 							if (err) throw err;
 							console.log('changed file ' + filePath);
 							message.reply('done, the new order data should be sent to you.');
-						});
-						const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
-						message.client.users.fetch(requester, false).then((user) => {
-							user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
-						});
-						message.client.users.fetch(requestee, false).then((user) => {
-							user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
 						});
 					});
 				}
@@ -138,6 +131,13 @@ module.exports = {
 			}
 
 			readWriteAsync();
+			const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
+			message.client.users.fetch(requester, false).then((user) => {
+				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
+			});
+			message.client.users.fetch(requestee, false).then((user) => {
+				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
+			});
 		}
 		if (args[1] == "private") {
 			function readWriteAsync() {
@@ -150,21 +150,14 @@ module.exports = {
 						var toEdit = '"private": ' + private;
 						var toEdit2 = '"private": ' + args[2];
 						var newValue = data.replace(toEdit, toEdit2);
-	
+
 						fs.writeFile(fileToEdit, newValue, 'utf-8', function (err) {
 							if (err) throw err;
 							const filePath = '../orders/' + args[0];
 							console.log('changed file ' + filePath);
 							message.reply('done, the new order data should be sent to you.');
 						});
-						const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
-						message.client.users.fetch(requester, false).then((user) => {
-							user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
-						});
-						message.client.users.fetch(requestee, false).then((user) => {
-							user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
-						});
-					});	
+					});
 				}
 				else {
 					message.channel.send('You are not authorised to edit this transaction.');
@@ -173,6 +166,13 @@ module.exports = {
 			}
 
 			readWriteAsync();
+			const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
+			message.client.users.fetch(requester, false).then((user) => {
+				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
+			});
+			message.client.users.fetch(requestee, false).then((user) => {
+				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
+			});
 		}
 	},
 };
