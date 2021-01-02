@@ -17,6 +17,7 @@ module.exports = {
 
 						fs.writeFile(fileToEdit, newValue, 'utf-8', function (err) {
 							if (err) throw err;
+							message.reply('done');
 							console.log('changed file');
 						});
 					});
@@ -40,6 +41,7 @@ module.exports = {
 
 						fs.writeFile(fileToEdit, newValue, 'utf-8', function (err) {
 							if (err) throw err;
+							message.reply('done');
 							console.log('changed file');
 						});
 					});
@@ -63,6 +65,7 @@ module.exports = {
 
 						fs.writeFile(fileToEdit, newValue, 'utf-8', function (err) {
 							if (err) throw err;
+							message.reply('done');
 							console.log('changed file');
 						});
 					});
@@ -86,6 +89,7 @@ module.exports = {
 
 						fs.writeFile(fileToEdit, newValue, 'utf-8', function (err) {
 							if (err) throw err;
+							message.reply('done');
 							console.log('changed file');
 						});
 					});
