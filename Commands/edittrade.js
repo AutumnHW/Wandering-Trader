@@ -31,14 +31,22 @@ module.exports = {
 
 			readWriteAsync();
 			const filePath = '../orders/' + args[0] + '.json';
-			const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
-			message.client.users.fetch(requester, false).then((user) => {
-				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
-			});
-			message.client.users.fetch(requestee, false).then((user) => {
-				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
-			});
+			const { order, requester, requestee, want, give, accepted, completed, private } = require(filePath);
+			const orderupdate = order;
+			const requesterupdate = requester;
+			const requesteeupdate = requestee;
+			const wantupdate = want;
+			const giveupdate = give;
+			const acceptedupdate = accepted;
+			const completedupdate = completed;
+			const privateupdate = private;
 
+			message.client.users.fetch(requesterupdate, true).then((user) => {
+				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
+			});
+			message.client.users.fetch(requesteeupdate, true).then((user) => {
+				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
+			});
 		}
 		if (args[1] == "give") {
 			function readWriteAsync() {
@@ -67,46 +75,20 @@ module.exports = {
 			
 			readWriteAsync();
 			const filePath = '../orders/' + args[0] + '.json';
-			const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
-			message.client.users.fetch(requester, false).then((user) => {
-				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
-			});
-			message.client.users.fetch(requestee, false).then((user) => {
-				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
-			});
-		}
-		if (args[1] == "accepted") {
-			function readWriteAsync() {
-				const filePath = '../orders/' + args[0] + '.json';
-				const { order, requester, requestee, want, give, accepted, completed, private } = require(filePath);
-				if (message.author.id == requestee) {
-					var fileToEdit = "./orders/" + args[0] + ".json";
-					fs.readFile(fileToEdit, 'utf-8', function (err, data) {
-						if (err) throw err;
-						var toEdit = '"accepted": ' + accepted + ',';
-						var toEdit2 = '"accepted": ' + args[2] + ',';
-						var newValue = data.replace(toEdit, toEdit2);
+			const { order, requester, requestee, want, give, accepted, completed, private } = require(filePath);
+			const orderupdate = order;
+			const requesterupdate = requester;
+			const requesteeupdate = requestee;
+			const wantupdate = want;
+			const giveupdate = give;
+			const acceptedupdate = accepted;
+			const completedupdate = completed;
+			const privateupdate = private;
 
-						fs.writeFile(fileToEdit, newValue, 'utf-8', function (err) {
-							if (err) throw err;
-							console.log('changed file ' + filePath);
-							message.reply('done, the new order data should be sent to you.');
-						});
-					});
-				}
-				else {
-					message.channel.send('You are not authorised to edit this transaction.');
-					return;
-				}
-			}
-
-			readWriteAsync();
-			const filePath = '../orders/' + args[0] + '.json';
-			const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
-			message.client.users.fetch(requester, false).then((user) => {
+			message.client.users.fetch(requesterupdate, true).then((user) => {
 				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
 			});
-			message.client.users.fetch(requestee, false).then((user) => {
+			message.client.users.fetch(requesteeupdate, true).then((user) => {
 				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
 			});
 		}
@@ -136,11 +118,21 @@ module.exports = {
 			}
 
 			readWriteAsync();
-			const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
-			message.client.users.fetch(requester, false).then((user) => {
+			const filePath = '../orders/' + args[0] + '.json';
+			const { order, requester, requestee, want, give, accepted, completed, private } = require(filePath);
+			const orderupdate = order;
+			const requesterupdate = requester;
+			const requesteeupdate = requestee;
+			const wantupdate = want;
+			const giveupdate = give;
+			const acceptedupdate = accepted;
+			const completedupdate = completed;
+			const privateupdate = private;
+
+			message.client.users.fetch(requesterupdate, true).then((user) => {
 				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
 			});
-			message.client.users.fetch(requestee, false).then((user) => {
+			message.client.users.fetch(requesteeupdate, true).then((user) => {
 				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
 			});
 		}
@@ -172,11 +164,20 @@ module.exports = {
 
 			readWriteAsync();
 			const filePath = '../orders/' + args[0] + '.json';
-			const { orderupdate, wantupdate, giveupdate, acceptedupdate, completedupdate, privateupdate } = require(filePath);
-			message.client.users.fetch(requester, false).then((user) => {
+			const { order, requester, requestee, want, give, accepted, completed, private } = require(filePath);
+			const orderupdate = order;
+			const requesterupdate = requester;
+			const requesteeupdate = requestee;
+			const wantupdate = want;
+			const giveupdate = give;
+			const acceptedupdate = accepted;
+			const completedupdate = completed;
+			const privateupdate = private;
+
+			message.client.users.fetch(requesterupdate, true).then((user) => {
 				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
 			});
-			message.client.users.fetch(requestee, false).then((user) => {
+			message.client.users.fetch(requesteeupdate, true).then((user) => {
 				user.send("Order: " + orderupdate + ",\nI Want: " + wantupdate + ",\nFor: " + giveupdate + ",\nAccepted: " + acceptedupdate + ",\nCompleted: " + completedupdate + ",\nPrivate: " + privateupdate + ".\n\n\nThat is your order data, now updated.");
 			});
 		}
