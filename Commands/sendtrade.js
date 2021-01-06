@@ -18,10 +18,6 @@ module.exports = {
 		let sendto = message.mentions.users.first();
 		const requester = message.author.id;
 		const requestee = sendto.id;
-		if (message.author.id == sendto.id) {
-			message.reply('You are not authorised to edit this transaction.');
-			return;
-		}
 		console.log(orderid);
 		message.channel.send(orderid + " is your trade id.");
 		if (args[3] == "-p") {
