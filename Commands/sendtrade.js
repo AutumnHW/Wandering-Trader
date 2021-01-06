@@ -18,6 +18,10 @@ module.exports = {
 		let sendto = message.mentions.users.first();
 		const requester = message.author.id;
 		const requestee = sendto.id;
+		if (requester == requestee) {
+			message.reply('You cannot send messages to yourself!');
+			return;
+		}
 		console.log(orderid);
 		message.channel.send(orderid + " is your trade id.");
 		if (args[3] == "-p") {
